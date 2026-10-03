@@ -1,0 +1,51 @@
+* { margin:0; padding:0; box-sizing:border-box; }
+html,body { height:100%; background:#000; color:#fff; font-family:'Courier New',monospace; overscroll-behavior:none; }
+body { display:flex; justify-content:center; align-items:flex-start; }
+#wrap { width:100%; max-width:500px; min-height:100vh; display:flex; flex-direction:column; align-items:stretch; background:#000; }
+#cab, #hudBottom {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:8px 10px; font-size:14px; font-weight:bold; letter-spacing:1px;
+  background:#000; color:#fff; text-shadow:2px 2px 0 #222;
+  user-select:none;
+}
+#scoreBox { color:#FFFF00; }
+#hiBox { color:#FF00FF; }
+#levelBox { color:#00FFFF; }
+#canvasHolder { position:relative; width:100%; aspect-ratio:480/640; background:#000; border-top:2px solid #222; border-bottom:2px solid #222; touch-action:none; }
+#game { width:100%; height:100%; display:block; background:#000; image-rendering:pixelated; image-rendering:crisp-edges; touch-action:none; }
+#overlay {
+  position:absolute; inset:0; display:flex; flex-direction:column; justify-content:center; align-items:center;
+  text-align:center; background:rgba(0,0,0,.85); gap:10px; padding:20px; z-index:5;
+}
+#overlay.hidden { display:none; }
+#ovTitle { color:#FFFF00; font-size:38px; letter-spacing:2px; text-shadow:3px 3px 0 #FF0000, 6px 6px 0 #0000FF; }
+#ovSub { color:#00FF00; font-size:15px; }
+#ovText { color:#fff; font-size:13px; line-height:1.6; }
+#ovHint { color:#888; font-size:11px; line-height:1.5; }
+#btnStart {
+  font-family:inherit; font-size:20px; font-weight:bold; padding:12px 28px; cursor:pointer;
+  background:#00FF00; color:#000; border:4px solid #fff; box-shadow:4px 4px 0 #008800;
+}
+#btnStart:active { transform:translate(2px,2px); box-shadow:2px 2px 0 #008800; }
+#hudBottom { border-top:none; }
+#livesBox { color:#FF5555; white-space:nowrap; }
+#waveBox { color:#00FF88; white-space:nowrap; }
+#energyWrap { flex:1; margin:0 10px; }
+#energyLabel { font-size:10px; color:#00FFFF; text-align:center; margin-bottom:3px; }
+#energyBar { height:14px; border:2px solid #fff; background:#300; padding:1px; }
+#energyFill { height:100%; width:100%; background:linear-gradient(90deg,#FF0000,#FFFF00,#00FF00); transition:width .15s linear; }
+#energyFill.low { background:#FF0000; animation:blink .4s steps(2) infinite; }
+@keyframes blink { 50% { opacity:.4; } }
+#touchControls { display:none; justify-content:space-between; gap:10px; padding:10px; background:#000; }
+#touchControls button {
+  flex:1; font-family:inherit; font-size:22px; font-weight:bold; padding:14px 0;
+  background:#111; color:#fff; border:3px solid #fff; border-radius:8px; touch-action:none; user-select:none;
+}
+#btnFire { background:#330000 !important; border-color:#FF0000 !important; color:#FFFF00 !important; }
+#touchControls button:active { background:#333; }
+@media (pointer:coarse) {
+  #touchControls { display:flex; }
+}
+@media (min-width:520px) {
+  #wrap { border-left:2px solid #222; border-right:2px solid #222; }
+}
